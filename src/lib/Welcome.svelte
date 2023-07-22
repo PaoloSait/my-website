@@ -1,7 +1,19 @@
-<div class="body">
+<script>
+    import { browser } from "$app/environment";
+    let width = 1000;
+    if (browser) {
+        width = window.innerWidth;
+    }
+    let isMobile = width < 900;
+</script>
+
+<!-- Make our width variable dynamically update ("bind") to the window width-->
+<svelte:window bind:innerWidth={width} />
+
+<div class="body" class:mobile={width < 900}>
     <div class="content">
         <div style="height: 3vh;" />
-        
+
         <p class="name">PAOLO SAIT</p>
 
         <p class="ramble">
@@ -12,13 +24,6 @@
 </div>
 
 <style>
-    @import url("https://fonts.googleapis.com/css?family=Bebas+Neue");
-
-    * {
-        font-family: "Bebas Neue";
-        margin: 0px;
-    }
-
     .name {
         color: #000000;
         font-size: 180px;
@@ -54,4 +59,32 @@
         display: flex;
         justify-content: center;
     }
+
+    .mobile .name {
+        font-size: 80px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 80px;
+        letter-spacing: 2px;
+    }
+
+    .mobile .ramble {
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 40px;
+        letter-spacing: 2px;
+    }
+
+    .mobile .content {
+        width: 300px;
+    }
+    /* 
+    .mobile .name{
+        font-size: 50px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 50px;
+        letter-spacing: 2px;
+    } */
 </style>

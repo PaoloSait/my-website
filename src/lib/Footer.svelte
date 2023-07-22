@@ -24,6 +24,7 @@
         justify-content: right;
         width: 100vw;
         height: 48px;
+        margin: auto;
     }
 
     .material-symbols-outlined {
@@ -61,5 +62,7 @@
         animation-fill-mode: both;
         font-family: "Inter";
         font-weight: 800;
+        line-height: 48px;
+        vertical-align: middle;
     }
 </style>
