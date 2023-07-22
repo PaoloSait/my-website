@@ -65,6 +65,7 @@
         width: 100vw;
         display: flex;
         justify-content: center;
+        min-height: 100vh;
     }
 
     .mobile .name {
