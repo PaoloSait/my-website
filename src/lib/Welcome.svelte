@@ -24,6 +24,13 @@
 </div>
 
 <style>
+    @import url("https://fonts.googleapis.com/css?family=Bebas+Neue");
+
+    * {
+        font-family: "Bebas Neue";
+        margin: 0px;
+    }
+
     .name {
         color: #000000;
         font-size: 180px;

@@ -19,6 +19,10 @@
 <style>
     @import url("https://fonts.googleapis.com/css?family=Inter");
 
+    * {
+        margin: 0px;
+    }
+
     .body {
         display: flex;
         justify-content: right;
