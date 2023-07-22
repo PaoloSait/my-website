@@ -1,5 +1,7 @@
 <div class="body">
     <div class="content">
+        <div style="height: 3vh;" />
+        
         <p class="name">PAOLO SAIT</p>
 
         <p class="ramble">
@@ -19,20 +21,20 @@
 
     .name {
         color: #000000;
-        font-size: 200px;
+        font-size: 180px;
         font-style: normal;
         font-weight: 400;
-        line-height: 200px;
+        line-height: 180px;
         letter-spacing: 4px;
         display: flex;
         justify-content: center;
     }
 
     .ramble {
-        font-size: 100px;
+        font-size: 90px;
         font-style: normal;
         font-weight: 400;
-        line-height: 100px; /* 100% */
+        line-height: 90px; /* 100% */
         letter-spacing: 2px;
         background: linear-gradient(146deg, #d1d0d1 0%, #d0cad8 100%);
         background-clip: text;
@@ -41,12 +43,12 @@
     }
 
     .content {
-        width: 720px;
+        width: 650px;
         display: flex;
         justify-content: center;
         flex-direction: column;
     }
-    
+
     .body {
         width: 100vw;
         display: flex;
