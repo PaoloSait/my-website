@@ -1,0 +1,108 @@
+[debug] [2023-07-24T12:55:00.911Z] ----------------------------------------------------------------------
+[debug] [2023-07-24T12:55:00.913Z] Command:       /usr/local/bin/firebase /Users/paolo/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase deploy
+[debug] [2023-07-24T12:55:00.913Z] CLI Version:   11.10.0
+[debug] [2023-07-24T12:55:00.913Z] Platform:      darwin
+[debug] [2023-07-24T12:55:00.914Z] Node Version:  v16.16.0
+[debug] [2023-07-24T12:55:00.919Z] Time:          Mon Jul 24 2023 13:55:00 GMT+0100 (British Summer Time)
+[debug] [2023-07-24T12:55:00.919Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-07-24T12:55:00.922Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[debug] [2023-07-24T12:55:00.990Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-07-24T12:55:00.991Z] > authorizing via signed-in user (paolosait7@gmail.com)
+[debug] [2023-07-24T12:55:00.991Z] [iam] checking project project-me-4d2ce for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-07-24T12:55:00.992Z] > refreshing access token with scopes: []
+[debug] [2023-07-24T12:55:00.993Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2023-07-24T12:55:00.993Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-07-24T12:55:01.131Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2023-07-24T12:55:01.131Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2023-07-24T12:55:01.182Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/project-me-4d2ce:testIamPermissions [none]
+[debug] [2023-07-24T12:55:01.183Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/project-me-4d2ce:testIamPermissions x-goog-quota-user=projects/project-me-4d2ce
+[debug] [2023-07-24T12:55:01.183Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/project-me-4d2ce:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-07-24T12:55:01.309Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2023-07-24T12:55:01.309Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[debug] [2023-07-24T12:55:01.892Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/project-me-4d2ce:testIamPermissions 200
+[debug] [2023-07-24T12:55:01.892Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/project-me-4d2ce:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-07-24T12:55:01.894Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/project-me-4d2ce [none]
+[debug] [2023-07-24T12:55:02.184Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/project-me-4d2ce 200
+[debug] [2023-07-24T12:55:02.185Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/project-me-4d2ce {"projectId":"project-me-4d2ce","projectNumber":"1082634498326","displayName":"Project ME","name":"projects/project-me-4d2ce","resources":{"hostingSite":"project-me-4d2ce"},"state":"ACTIVE","etag":"1_2e24a28d-ae35-463e-bac1-73c36c04d337"}
+[info] 
+[info] === Deploying to 'project-me-4d2ce'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2023-07-24T12:55:02.187Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/project-me-4d2ce [none]
+[debug] [2023-07-24T12:55:02.477Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/project-me-4d2ce 200
+[debug] [2023-07-24T12:55:02.477Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/project-me-4d2ce {"projectId":"project-me-4d2ce","projectNumber":"1082634498326","displayName":"Project ME","name":"projects/project-me-4d2ce","resources":{"hostingSite":"project-me-4d2ce"},"state":"ACTIVE","etag":"1_2e24a28d-ae35-463e-bac1-73c36c04d337"}
+[debug] [2023-07-24T12:55:02.480Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/1082634498326/sites/project-me-4d2ce/versions [none]
+[debug] [2023-07-24T12:55:02.480Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/1082634498326/sites/project-me-4d2ce/versions {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2023-07-24T12:55:03.526Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/1082634498326/sites/project-me-4d2ce/versions 200
+[debug] [2023-07-24T12:55:03.527Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/1082634498326/sites/project-me-4d2ce/versions {"name":"projects/1082634498326/sites/project-me-4d2ce/versions/3324bc7905f25317","status":"CREATED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[project-me-4d2ce]: beginning deploy... 
+[info] i  hosting[project-me-4d2ce]: found 14 files in public 
+[debug] [2023-07-24T12:55:03.542Z] [hosting] uploading with 200 concurrency
+[debug] [2023-07-24T12:55:03.573Z] [hosting] hash cache [cHVibGlj] stored for 14 files
+[debug] [2023-07-24T12:55:03.574Z] [hosting][hash queue][FINAL] {"max":20,"min":11,"avg":13.214285714285714,"active":0,"complete":14,"success":14,"errored":0,"retried":0,"total":14,"elapsed":24}
+[debug] [2023-07-24T12:55:03.574Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/1082634498326/sites/project-me-4d2ce/versions/3324bc7905f25317:populateFiles [none]
+[debug] [2023-07-24T12:55:03.574Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/1082634498326/sites/project-me-4d2ce/versions/3324bc7905f25317:populateFiles {"files":{"/favicon.png":"de37fe1ebb5a3626a8020f83217dad63fbaec03f492008a519af114a4d0b2ed1","/_app/version.json":"c276cd4aa086746ff344218e579ccda0e0f8a302997e5317adc644b728a7ac49","/_app/immutable/assets/_page.79dfdb2f.css":"27e40d38a9e15fbc4027dca85c4426a4c2b3e2f5bb531c302a97bea3e0d66e3b","/_app/immutable/chunks/scheduler.b95eede2.js":"a0d4e987f97602cd4deb86cb818ba2b87bad2780761bf862ad846a93074b6952","/index.html":"f71506a7bcde64ac74a8214b9cae8f3a854085d33b0a7870895714e4dca9907f","/_app/immutable/chunks/index.a68cf9ba.js":"81fd38ffa43ab3694cae5b397dc4c32e2e1ee6c507f7f5bbd33ab8a016befd62","/_app/immutable/assets/2.79dfdb2f.css":"27e40d38a9e15fbc4027dca85c4426a4c2b3e2f5bb531c302a97bea3e0d66e3b","/_app/immutable/chunks/singletons.9e82ad15.js":"fa8188a57a809b84a59e5f9f0f5c522e6d8774b22353ca65b3928b76a3a11532","/_app/immutable/entry/app.20f1fbce.js":"8a3005d33d49f6a449dfbd62e9bb1244d7ff4550e66627a8905def6e60c2a486","/_app/immutable/nodes/1.82e85641.js":"2ac6dcf8d440554cb20f4cfafd6d436563c5231cba47b507cc9c0e014445c865","/_app/immutable/nodes/0.9d70f7fa.js":"f1e0f7adddbd7fc3b62490f42d3841c2f2ff1a08ec14057bf87d02f4e906d599","/_app/immutable/nodes/2.37d344ad.js":"1e8fc55df57edbcdf7dac0cfcb6431773920ce25e187c4a23226ddd57aa93768","/_app/immutable/entry/start.83110710.js":"559c0a4023bb87aee04b4fb30ce8b1c70b329bc9b3fc2420c9810b6dd08567fc","/heart-icon.png":"1210a2afac08d9818e13cc0c7663a6ab0b3adb8506d36c156f5f4238b50a5d3b"}}
+[debug] [2023-07-24T12:55:04.447Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/1082634498326/sites/project-me-4d2ce/versions/3324bc7905f25317:populateFiles 200
+[debug] [2023-07-24T12:55:04.447Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/1082634498326/sites/project-me-4d2ce/versions/3324bc7905f25317:populateFiles {"uploadRequiredHashes":["27e40d38a9e15fbc4027dca85c4426a4c2b3e2f5bb531c302a97bea3e0d66e3b","559c0a4023bb87aee04b4fb30ce8b1c70b329bc9b3fc2420c9810b6dd08567fc","2ac6dcf8d440554cb20f4cfafd6d436563c5231cba47b507cc9c0e014445c865","fa8188a57a809b84a59e5f9f0f5c522e6d8774b22353ca65b3928b76a3a11532","1e8fc55df57edbcdf7dac0cfcb6431773920ce25e187c4a23226ddd57aa93768","c276cd4aa086746ff344218e579ccda0e0f8a302997e5317adc644b728a7ac49","f71506a7bcde64ac74a8214b9cae8f3a854085d33b0a7870895714e4dca9907f","8a3005d33d49f6a449dfbd62e9bb1244d7ff4550e66627a8905def6e60c2a486"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/project-me-4d2ce/versions/3324bc7905f25317/files"}
+[debug] [2023-07-24T12:55:04.450Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-me-4d2ce/versions/3324bc7905f25317/files/27e40d38a9e15fbc4027dca85c4426a4c2b3e2f5bb531c302a97bea3e0d66e3b [none]
+[debug] [2023-07-24T12:55:04.450Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-me-4d2ce/versions/3324bc7905f25317/files/27e40d38a9e15fbc4027dca85c4426a4c2b3e2f5bb531c302a97bea3e0d66e3b [stream]
+[debug] [2023-07-24T12:55:04.451Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-me-4d2ce/versions/3324bc7905f25317/files/559c0a4023bb87aee04b4fb30ce8b1c70b329bc9b3fc2420c9810b6dd08567fc [none]
+[debug] [2023-07-24T12:55:04.451Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-me-4d2ce/versions/3324bc7905f25317/files/559c0a4023bb87aee04b4fb30ce8b1c70b329bc9b3fc2420c9810b6dd08567fc [stream]
+[debug] [2023-07-24T12:55:04.453Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-me-4d2ce/versions/3324bc7905f25317/files/2ac6dcf8d440554cb20f4cfafd6d436563c5231cba47b507cc9c0e014445c865 [none]
+[debug] [2023-07-24T12:55:04.453Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-me-4d2ce/versions/3324bc7905f25317/files/2ac6dcf8d440554cb20f4cfafd6d436563c5231cba47b507cc9c0e014445c865 [stream]
+[debug] [2023-07-24T12:55:04.455Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-me-4d2ce/versions/3324bc7905f25317/files/fa8188a57a809b84a59e5f9f0f5c522e6d8774b22353ca65b3928b76a3a11532 [none]
+[debug] [2023-07-24T12:55:04.455Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-me-4d2ce/versions/3324bc7905f25317/files/fa8188a57a809b84a59e5f9f0f5c522e6d8774b22353ca65b3928b76a3a11532 [stream]
+[debug] [2023-07-24T12:55:04.458Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-me-4d2ce/versions/3324bc7905f25317/files/1e8fc55df57edbcdf7dac0cfcb6431773920ce25e187c4a23226ddd57aa93768 [none]
+[debug] [2023-07-24T12:55:04.458Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-me-4d2ce/versions/3324bc7905f25317/files/1e8fc55df57edbcdf7dac0cfcb6431773920ce25e187c4a23226ddd57aa93768 [stream]
+[debug] [2023-07-24T12:55:04.460Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-me-4d2ce/versions/3324bc7905f25317/files/c276cd4aa086746ff344218e579ccda0e0f8a302997e5317adc644b728a7ac49 [none]
+[debug] [2023-07-24T12:55:04.460Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-me-4d2ce/versions/3324bc7905f25317/files/c276cd4aa086746ff344218e579ccda0e0f8a302997e5317adc644b728a7ac49 [stream]
+[debug] [2023-07-24T12:55:04.461Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-me-4d2ce/versions/3324bc7905f25317/files/f71506a7bcde64ac74a8214b9cae8f3a854085d33b0a7870895714e4dca9907f [none]
+[debug] [2023-07-24T12:55:04.461Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-me-4d2ce/versions/3324bc7905f25317/files/f71506a7bcde64ac74a8214b9cae8f3a854085d33b0a7870895714e4dca9907f [stream]
+[debug] [2023-07-24T12:55:04.462Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-me-4d2ce/versions/3324bc7905f25317/files/8a3005d33d49f6a449dfbd62e9bb1244d7ff4550e66627a8905def6e60c2a486 [none]
+[debug] [2023-07-24T12:55:04.462Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-me-4d2ce/versions/3324bc7905f25317/files/8a3005d33d49f6a449dfbd62e9bb1244d7ff4550e66627a8905def6e60c2a486 [stream]
+[debug] [2023-07-24T12:55:04.463Z] [hosting][populate queue][FINAL] {"max":878,"min":878,"avg":878,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":891}
+[debug] [2023-07-24T12:55:04.463Z] [hosting] uploads queued: 8
+[debug] [2023-07-24T12:55:05.469Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-me-4d2ce/versions/3324bc7905f25317/files/27e40d38a9e15fbc4027dca85c4426a4c2b3e2f5bb531c302a97bea3e0d66e3b 200
+[debug] [2023-07-24T12:55:05.469Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-me-4d2ce/versions/3324bc7905f25317/files/27e40d38a9e15fbc4027dca85c4426a4c2b3e2f5bb531c302a97bea3e0d66e3b [stream]
+[debug] [2023-07-24T12:55:05.471Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-me-4d2ce/versions/3324bc7905f25317/files/559c0a4023bb87aee04b4fb30ce8b1c70b329bc9b3fc2420c9810b6dd08567fc 200
+[debug] [2023-07-24T12:55:05.471Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-me-4d2ce/versions/3324bc7905f25317/files/559c0a4023bb87aee04b4fb30ce8b1c70b329bc9b3fc2420c9810b6dd08567fc [stream]
+[debug] [2023-07-24T12:55:05.473Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-me-4d2ce/versions/3324bc7905f25317/files/1e8fc55df57edbcdf7dac0cfcb6431773920ce25e187c4a23226ddd57aa93768 200
+[debug] [2023-07-24T12:55:05.473Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-me-4d2ce/versions/3324bc7905f25317/files/1e8fc55df57edbcdf7dac0cfcb6431773920ce25e187c4a23226ddd57aa93768 [stream]
+[debug] [2023-07-24T12:55:05.475Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-me-4d2ce/versions/3324bc7905f25317/files/8a3005d33d49f6a449dfbd62e9bb1244d7ff4550e66627a8905def6e60c2a486 200
+[debug] [2023-07-24T12:55:05.475Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-me-4d2ce/versions/3324bc7905f25317/files/8a3005d33d49f6a449dfbd62e9bb1244d7ff4550e66627a8905def6e60c2a486 [stream]
+[debug] [2023-07-24T12:55:05.504Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-me-4d2ce/versions/3324bc7905f25317/files/2ac6dcf8d440554cb20f4cfafd6d436563c5231cba47b507cc9c0e014445c865 200
+[debug] [2023-07-24T12:55:05.504Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-me-4d2ce/versions/3324bc7905f25317/files/2ac6dcf8d440554cb20f4cfafd6d436563c5231cba47b507cc9c0e014445c865 [stream]
+[debug] [2023-07-24T12:55:05.552Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-me-4d2ce/versions/3324bc7905f25317/files/fa8188a57a809b84a59e5f9f0f5c522e6d8774b22353ca65b3928b76a3a11532 200
+[debug] [2023-07-24T12:55:05.553Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-me-4d2ce/versions/3324bc7905f25317/files/fa8188a57a809b84a59e5f9f0f5c522e6d8774b22353ca65b3928b76a3a11532 [stream]
+[debug] [2023-07-24T12:55:05.621Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-me-4d2ce/versions/3324bc7905f25317/files/c276cd4aa086746ff344218e579ccda0e0f8a302997e5317adc644b728a7ac49 200
+[debug] [2023-07-24T12:55:05.621Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-me-4d2ce/versions/3324bc7905f25317/files/c276cd4aa086746ff344218e579ccda0e0f8a302997e5317adc644b728a7ac49 [stream]
+[debug] [2023-07-24T12:55:05.624Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-me-4d2ce/versions/3324bc7905f25317/files/f71506a7bcde64ac74a8214b9cae8f3a854085d33b0a7870895714e4dca9907f 200
+[debug] [2023-07-24T12:55:05.624Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/project-me-4d2ce/versions/3324bc7905f25317/files/f71506a7bcde64ac74a8214b9cae8f3a854085d33b0a7870895714e4dca9907f [stream]
+[debug] [2023-07-24T12:55:05.624Z] [hosting][upload queue][FINAL] {"max":1175,"min":1023,"avg":1075.5,"active":0,"complete":8,"success":8,"errored":0,"retried":0,"total":8,"elapsed":1177}
+[info] ✔  hosting[project-me-4d2ce]: file upload complete 
+[debug] [2023-07-24T12:55:05.625Z] [hosting] deploy completed after 2096ms
+[debug] [2023-07-24T12:55:05.629Z] [
+  {
+    "config": {
+      "public": "public",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "project-me-4d2ce"
+    },
+    "site": "project-me-4d2ce",
+    "version": "projects/1082634498326/sites/project-me-4d2ce/versions/3324bc7905f25317"
+  }
+]
+[info] i  hosting[project-me-4d2ce]: finalizing version... 
+[debug] [2023-07-24T12:55:05.630Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/1082634498326/sites/project-me-4d2ce/versions/3324bc7905f25317 updateMask=status%2Cconfig
+[debug] [2023-07-24T12:55:05.630Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/1082634498326/sites/project-me-4d2ce/versions/3324bc7905f25317 {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}}
