@@ -31,7 +31,20 @@
         margin: 0px;
     }
 
+    @keyframes fade-anim {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
     .name {
+        animation-name: fade-anim;
+        animation-duration: 2s;
+        animation-delay: 300ms;
+        animation-fill-mode: both;
         color: #000000;
         font-size: 180px;
         font-style: normal;
@@ -42,13 +55,19 @@
         justify-content: center;
     }
 
+
     .ramble {
+        animation-name: fade-anim;
+        animation-duration: 3s;
+        animation-delay: 500ms;
+        animation-fill-mode: both;
         font-size: 90px;
         font-style: normal;
         font-weight: 400;
         line-height: 90px; /* 100% */
         letter-spacing: 2px;
         background: linear-gradient(146deg, #d1d0d1 0%, #d0cad8 100%);
+
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;

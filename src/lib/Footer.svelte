@@ -2,7 +2,7 @@
     let showLove = false;
 
     function makeLove() {
-        showLove = true;
+        showLove = !showLove;
     }
 </script>
 
@@ -51,19 +51,20 @@
         color: #34006f;
     }
 
-    @keyframes love-message {
+    @keyframes fade-anim {
         from {
-            color: transparent;
+            opacity: 0;
         }
         to {
-            color: #34006f;
+            opacity: 1;
         }
     }
 
     .message {
-        animation-name: love-message;
+        animation-name: fade-anim;
         animation-duration: 3s;
         animation-fill-mode: both;
+        color: #34006f;
         font-family: "Inter";
         font-weight: 800;
         line-height: 48px;
