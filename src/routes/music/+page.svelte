@@ -7,6 +7,7 @@
         height = window.innerHeight;
     }
 
+    let rate = 100
     let i = 0;
 
     function counter() {
@@ -15,14 +16,14 @@
 
     let isPlaying = true;
 
-    var timerObj = setInterval(counter, 100);
+    var timerObj = setInterval(counter, rate);
 
     function togglePlaying() {
         if (isPlaying) {
             clearInterval(timerObj);
             timerObj = null;
         } else {
-            timerObj = setInterval(counter, 100);
+            timerObj = setInterval(counter, rate);
         }
         isPlaying = !isPlaying;
     }
@@ -33,12 +34,22 @@
 
     if (browser) {
         document.addEventListener("keydown", (e) => {
-        if (e.code === "Space") {
-            togglePlaying();
-        }
-    });
+            if (e.code === "Space") {
+                togglePlaying();
+            }
+        });
     }
-    
+
+    function opacity(x, y, x_count, y_count, i) {
+        if (x == i % x_count || y == i % y_count) {
+            return 0.75;
+        } else if (Math.abs(x - (i % x_count)) == 1 || Math.abs(y - (i % y_count)) == 1) {
+            return 0.5;
+        } else if (Math.abs(x - (i % x_count)) == 2 || Math.abs(y - (i % y_count)) == 2) {
+            return 0.25;
+        }
+    }
+
 </script>
 
 <svelte:window bind:innerWidth={width} bind:innerHeight={height} />
@@ -66,11 +77,7 @@
                 {#each Array(calcSize(width)) as _, index (index)}
                     <span
                         class="material-symbols-outlined button, heart"
-                        class:peak={index == i % calcSize(width)}
-                        class:slope={index == (i - 1) % calcSize(width) ||
-                            index == (i + 1) % 50}
-                        class:slight={index == (i - 2) % calcSize(width) ||
-                            index == (i + 2) % calcSize(width)}
+                        style:opacity={opacity(index, ind,calcSize(width), calcSize(height), i)}
                     >
                         favorite
                     </span>
@@ -94,17 +101,5 @@
     .heart {
         color: #34006f;
         opacity: 0.13;
-    }
-
-    .peak {
-        opacity: 1;
-    }
-
-    .slope {
-        opacity: 0.5;
-    }
-
-    .slight {
-        opacity: 0.25;
     }
 </style>
