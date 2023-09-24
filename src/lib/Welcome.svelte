@@ -14,7 +14,10 @@
     <div class="content">
         <div style="height: 3vh;" />
 
-        <p class="name">PAOLO SAIT</p>
+        <div class="nameContainer">
+            <p class="name">PAOLO</p>
+            <p class="name">SAIT</p>
+        </div>
 
         <p class="ramble">
             THIS WEBSITE IS STILL BEING CREATED. BE PATIENT TO SEE WHAT IT
@@ -40,6 +43,12 @@
         }
     }
 
+    .nameContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
     .name {
         animation-name: fade-anim;
         animation-duration: 2s;
@@ -55,7 +64,6 @@
         justify-content: center;
     }
 
-
     .ramble {
         animation-name: fade-anim;
         animation-duration: 3s;
@@ -66,6 +74,7 @@
         font-weight: 400;
         line-height: 90px; /* 100% */
         letter-spacing: 2px;
+        /* text-align: justify; */
         background: linear-gradient(146deg, #d1d0d1 0%, #d0cad8 100%);
 
         background-clip: text;
@@ -88,6 +97,7 @@
     }
 
     .mobile .name {
+        text-align: justify;
         font-size: 80px;
         font-style: normal;
         font-weight: 400;
