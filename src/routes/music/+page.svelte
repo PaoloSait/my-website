@@ -1,4 +1,12 @@
 <script>
+    import { browser } from "$app/environment";
+    let width = 1000;
+    let height = 1000;
+    if (browser) {
+        width = window.innerWidth;
+        height = window.innerHeight;
+    }
+
     let i = 0;
 
     function counter() {
@@ -9,52 +17,75 @@
 
     var timerObj = setInterval(counter, 100);
 
-    function stop() {
-        if (timerObj) {
+    function togglePlaying() {
+        if (isPlaying) {
             clearInterval(timerObj);
             timerObj = null;
-            isPlaying = false;
+        } else {
+            timerObj = setInterval(counter, 100);
         }
+        isPlaying = !isPlaying;
     }
 
-    // start timer using current settings (if it's not already running)
-    function start() {
-        if (timerObj == null) {
-            timerObj = setInterval(counter, 100);
-            isPlaying = true;
-        }
+    function calcSize(dim) {
+        return Math.floor(dim / 24);
     }
+
+    if (browser) {
+        document.addEventListener("keydown", (e) => {
+        if (e.code === "Space") {
+            togglePlaying();
+        }
+    });
+    }
+    
 </script>
 
-{#if isPlaying}
-    <button on:click={stop} class="material-symbols-outlined button">
-        pause
-    </button>
-{:else}
-    <button on:click={start} class="material-symbols-outlined button">
-        play_arrow
-    </button>
-{/if}
+<svelte:window bind:innerWidth={width} bind:innerHeight={height} />
 
-<div class="col">
-    {#each Array(30) as _, ind (ind)}
-        <div>
-            {#each Array(50) as _, index (index)}
-                <span
-                    class="material-symbols-outlined button, heart"
-                    class:peak={index == i % 50}
-                    class:slope={index == (i - 1) % 50 || index == (i + 1) % 50}
-                    class:slight={index == (i - 2) % 50 ||
-                        index == (i + 2) % 50}
-                >
-                    favorite
-                </span>
-            {/each}
-        </div>
-    {/each}
+<div class="no-scroll">
+    {#if isPlaying}
+        <button
+            on:click={togglePlaying}
+            class="material-symbols-outlined button"
+        >
+            pause
+        </button>
+    {:else}
+        <button
+            on:click={togglePlaying}
+            class="material-symbols-outlined button"
+        >
+            play_arrow
+        </button>
+    {/if}
+
+    <div class="col">
+        {#each Array(calcSize(height)) as _, ind (ind)}
+            <div>
+                {#each Array(calcSize(width)) as _, index (index)}
+                    <span
+                        class="material-symbols-outlined button, heart"
+                        class:peak={index == i % calcSize(width)}
+                        class:slope={index == (i - 1) % calcSize(width) ||
+                            index == (i + 1) % 50}
+                        class:slight={index == (i - 2) % calcSize(width) ||
+                            index == (i + 2) % calcSize(width)}
+                    >
+                        favorite
+                    </span>
+                {/each}
+            </div>
+        {/each}
+    </div>
 </div>
 
 <style>
+    .no-scroll {
+        overflow: hidden;
+        position: relative;
+    }
+
     .col {
         display: flex;
         flex-direction: column;
