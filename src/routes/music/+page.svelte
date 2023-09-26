@@ -4,6 +4,7 @@
     let child;
     let isPlaying = false;
 </script>
+
 <!-- 
 {#if isPlaying}
     <button
@@ -21,18 +22,33 @@
     </button>
 {/if} -->
 
-<div>
+<div class="content">
     <div class="controller">
-        <p>Hello peter</p>
+        <div class="cover-art" />
+        <p>Hello World</p>
     </div>
-    <AnimatedBackground bind:this={child} rate="100" />
 </div>
 
+<AnimatedBackground bind:this={child} rate="100" />
+
 <style>
-    .controller {
-        width: 300;
-        height: 300;
-        background-color: white;
+    .content {
         position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+    }
+
+    .controller {
+        width: 200px;
+        height: 150px;
+        padding: 10px;
+        background-color: white;
+        position: relative;
+        margin: auto;
+    }
+
+    .cover-art {
+        background-color: grey;
     }
 </style>

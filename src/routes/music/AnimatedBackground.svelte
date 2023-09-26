@@ -30,8 +30,12 @@
         isPlaying = !isPlaying;
     }
 
-    function calcSize(dim) {
+    function xCount(dim) {
         return Math.floor(dim / 24);
+    }
+    
+    function yCount(dim) {
+        return Math.ceil(dim / 28);
     }
 
     if (browser) {
@@ -56,7 +60,7 @@
 
 <svelte:window bind:innerWidth={width} bind:innerHeight={height} />
 
-<div class="no-scroll">
+<body>
     <!-- {#if isPlaying}
         <button
             on:click={togglePlaying}
@@ -74,12 +78,12 @@
     {/if} -->
 
     <div class="col">
-        {#each Array(calcSize(height)) as _, ind (ind)}
+        {#each Array(yCount(height)) as _, ind (ind)}
             <div>
-                {#each Array(calcSize(width)) as _, index (index)}
+                {#each Array(xCount(width)) as _, index (index)}
                     <span
                         class="material-symbols-outlined button, heart"
-                        style:opacity={opacity(index, ind,calcSize(width), calcSize(height), i)}
+                        style:opacity={opacity(index, ind, xCount(width), yCount(height), i)}
                     >
                         favorite
                     </span>
@@ -87,21 +91,26 @@
             </div>
         {/each}
     </div>
-</div>
+</body>
 
 <style>
-    .no-scroll {
+    body {
         overflow: hidden;
         position: relative;
+        z-index: -1;
+        padding: 0%;
+        margin: 0%;
     }
 
     .col {
         display: flex;
         flex-direction: column;
+        margin: auto;
     }
 
     .heart {
         color: #34006f;
         opacity: 0.13;
+        padding: 0%;
     }
 </style>
