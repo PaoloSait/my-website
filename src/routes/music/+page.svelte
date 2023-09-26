@@ -1,8 +1,43 @@
 <script>
     import AnimatedBackground from "./AnimatedBackground.svelte";
+    import Controller from "./Controller.svelte";
+    import { browser } from "$app/environment";
 
     let child;
-    let isPlaying = false;
+
+
+    // Below is the code that controls the ticking for the animated background
+    let rate = 100;
+
+    // Counter variable starts at not 1 for an offset default
+    let i = 155;
+
+    function counter() {
+        i += 1;
+    }
+
+    export let isPlaying = false;
+
+    var timerObj;
+
+    export function togglePlaying() {
+        if (isPlaying) {
+            clearInterval(timerObj);
+            timerObj = null;
+        } else {
+            timerObj = setInterval(counter, rate);
+        }
+        isPlaying = !isPlaying;
+    }
+
+
+    if (browser) {
+        document.addEventListener("keydown", (e) => {
+            if (e.code === "Space") {
+                togglePlaying();
+            }
+        });
+    }
 </script>
 
 <!-- 
@@ -23,13 +58,10 @@
 {/if} -->
 
 <div class="content">
-    <div class="controller">
-        <div class="cover-art" />
-        <p>Hello World</p>
-    </div>
+    <Controller/>
 </div>
 
-<AnimatedBackground bind:this={child} rate="100" />
+<AnimatedBackground bind:this={child} count={i}/>
 
 <style>
     .content {
@@ -37,19 +69,5 @@
         width: 100%;
         height: 100%;
         display: flex;
-    }
-
-    .controller {
-        width: 400px;
-        height: 450px;
-        padding: 10px;
-        background-color: white;
-        position: relative;
-        margin: auto;
-        box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.15);
-    }
-
-    .cover-art {
-        background-color: grey;
     }
 </style>
