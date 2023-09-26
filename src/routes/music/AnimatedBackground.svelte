@@ -9,16 +9,16 @@
         height = window.innerHeight;
     }
 
-
-    let i = 0;
+    // Counter variable starts at not 1 for an offset default
+    let i = 155;
 
     function counter() {
         i += 1;
     }
 
-    export let isPlaying = true;
+    export let isPlaying = false;
 
-    var timerObj = setInterval(counter, rate);
+    var timerObj;
 
     export function togglePlaying() {
         if (isPlaying) {
