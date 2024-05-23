@@ -7,6 +7,8 @@
     let isMobile = width < 900;
 </script>
 
+<!-- Music VERSION -->
+
 <!-- Make our width variable dynamically update ("bind") to the window width-->
 <svelte:window bind:innerWidth={width} />
 
