@@ -1,3 +1,5 @@
+<!-- This is a component which animates the a background of lovehearts. The 'count' controls which axis are emphasised. -->
+
 <script>
     export let count = 1;
 
@@ -12,7 +14,7 @@
     function xCount(dim) {
         return Math.floor(dim / 24);
     }
-    
+
     function yCount(dim) {
         return Math.ceil(dim / 28);
     }
@@ -20,25 +22,36 @@
     function opacity(x, y, x_count, y_count, i) {
         if (x == i % x_count || y == i % y_count) {
             return 0.75;
-        } else if (Math.abs(x - (i % x_count)) == 1 || Math.abs(y - (i % y_count)) == 1) {
+        } else if (
+            Math.abs(x - (i % x_count)) == 1 ||
+            Math.abs(y - (i % y_count)) == 1
+        ) {
             return 0.5;
-        } else if (Math.abs(x - (i % x_count)) == 2 || Math.abs(y - (i % y_count)) == 2) {
+        } else if (
+            Math.abs(x - (i % x_count)) == 2 ||
+            Math.abs(y - (i % y_count)) == 2
+        ) {
             return 0.25;
         }
     }
-
 </script>
 
 <svelte:window bind:innerWidth={width} bind:innerHeight={height} />
 
-<body>
+<body class="no-scroll">
     <div class="col">
         {#each Array(yCount(height)) as _, ind (ind)}
             <div>
                 {#each Array(xCount(width)) as _, index (index)}
                     <span
                         class="material-symbols-outlined button, heart"
-                        style:opacity={opacity(index, ind, xCount(width), yCount(height), count)}
+                        style:opacity={opacity(
+                            index,
+                            ind,
+                            xCount(width),
+                            yCount(height),
+                            count
+                        )}
                     >
                         favorite
                     </span>
@@ -49,7 +62,7 @@
 </body>
 
 <style>
-    body {
+    .no-scroll {
         overflow: hidden;
         position: relative;
         z-index: -1;

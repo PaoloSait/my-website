@@ -1,7 +1,9 @@
+<script>
+    export let data
+</script>
+
 <div class="controller">
-    <h1>
-        Hello World
-    </h1>
+    <h1>{data.title}</h1>
 </div>
 
 <style>

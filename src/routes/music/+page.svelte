@@ -1,73 +1,52 @@
-<script>
-    import AnimatedBackground from "./AnimatedBackground.svelte";
-    import Controller from "./Controller.svelte";
-    import { browser } from "$app/environment";
-
-    let child;
-
-
-    // Below is the code that controls the ticking for the animated background
-    let rate = 100;
-
-    // Counter variable starts at not 1 for an offset default
-    let i = 155;
-
-    function counter() {
-        i += 1;
-    }
-
-    export let isPlaying = false;
-
-    var timerObj;
-
-    export function togglePlaying() {
-        if (isPlaying) {
-            clearInterval(timerObj);
-            timerObj = null;
-        } else {
-            timerObj = setInterval(counter, rate);
-        }
-        isPlaying = !isPlaying;
-    }
-
-
-    if (browser) {
-        document.addEventListener("keydown", (e) => {
-            if (e.code === "Space") {
-                togglePlaying();
-            }
-        });
-    }
-</script>
-
-<!-- 
-{#if isPlaying}
-    <button
-        on:click={() => child.togglePlaying()}
-        class="material-symbols-outlined button"
-    >
-        pause
-    </button>
-{:else}
-    <button
-        on:click={() => child.togglePlaying()}
-        class="material-symbols-outlined button"
-    >
-        play_arrow
-    </button>
-{/if} -->
-
-<div class="content">
-    <Controller/>
+<div class="controller">
+    <p>PLEASE CHOOSE A SONG:</p>
+    <p class="songs">
+        <a href="/music/come-back-to-you">COME BACK TO YOU</a>, 
+        <a href="/music">KING SHIT</a>,
+        <a href="/music">CALL THE POLICE</a>, 
+        <a href="/music">MAN ON THE MOON</a>, 
+        <a href="/music">BUICK</a>, 
+        <a href="/music">FOR THE VIDEO</a>.
+    </p>
 </div>
 
-<AnimatedBackground bind:this={child} count={i}/>
-
 <style>
-    .content {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        display: flex;
+    @import url("https://fonts.googleapis.com/css?family=Bebas+Neue");
+
+    * {
+        font-family: "Bebas Neue";
+        margin: 0px;
+        font-size: 40px;
+    }
+
+    a {
+        background: linear-gradient(146deg, #d1d0d1 0%, #d0cad8 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    a:hover {
+        background: black;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .songs {
+        background: linear-gradient(146deg, #d1d0d1 0%, #d0cad8 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .controller {
+        width: 400px;
+        height: 450px;
+        padding: 10px;
+        background-color: white;
+        position: relative;
+        margin: auto;
+        box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.15);
     }
 </style>
